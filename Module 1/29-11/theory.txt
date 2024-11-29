@@ -1,0 +1,81 @@
+if
+else if
+else
+
+switch-case
+
+=
+==
+
+a=b
+a==b
+
+a!=b
+1) for:
+
+for(initialization;condition;incre/decre)
+{
+	statement
+}
+
+2)
+
+intialization;
+
+while(condition)
+{
+	statement
+	incre/decre;
+}
+
+3)
+intialization;
+do
+{
+	statement
+	incre/decre;
+}
+
+while(condition);
+
+
+
+		
+	num=4752
+
+	int lastdigit=0;
+	
+	lastdigit= num%10;//2
+
+	while(num>0)
+	{
+		if(num>9)
+		{
+			num= num/10;
+		}
+		else
+		{
+			firstdigit = num;
+			sum=first+last
+		}	
+	}
+	
+
+
+
+
+
+	sum of all digits:
+	int sum=0,rem=0;//2
+
+	while(num>0)
+	{
+		rem = num%10;//2//5//7//4
+		sum+rem;//2+5=7+7=14+4=18
+		num=num/10;//475//47//40
+	}
+
+	print(sum);
+
+
+
