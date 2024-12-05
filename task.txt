@@ -1,0 +1,86 @@
+Practical Task 1: Constructor Chaining in Inheritance
+Objective: Implement inheritance with constructor chaining.
+
+Instructions:
+Create a base class called Employee with the following properties:
+
+String name
+double salary
+The constructor should initialize these properties.
+Then, create a subclass called Manager that extends Employee and adds the following property:
+
+String department
+The Manager class should initialize the department property using the super() keyword to call the constructor of the Employee class.
+
+Finally, create an instance of the Manager class, set its properties, and print the employee details (name, salary, department).
+
+Practical Task 2: Using this to Access Instance Variables
+Objective: Understand the use of this to access instance variables.
+
+Instructions:
+Create a class called Circle with the following properties:
+
+double radius
+Create a constructor to initialize the radius and a method getArea() that returns the area of the circle.
+In the getArea() method, use the this keyword to access the radius property and calculate the area (use the formula: area = ? * radius²).
+In the main function, create an instance of Circle, pass a value for the radius, and print the area of the circle.
+
+Practical Task 3: Static Variables and Methods
+Objective: Implement static variables and methods.
+
+Instructions:
+Create a class called Library that has:
+
+A static variable totalBooks to track the number of books in the library.
+A static method addBook() that increments the totalBooks by 1 each time a book is added.
+A static method getBookCount() that returns the total number of books.
+In the main function, call the addBook() method several times, and then print the total number of books in the library using getBookCount().
+
+Practical Task 4: Using final Keyword
+Objective: Understand the use of the final keyword.
+
+Instructions:
+Create a class Product with the following properties:
+
+final String name
+final double price
+Initialize both properties in the constructor.
+In the main function, create an instance of Product, initialize it with a name and price, and then try to modify the price property after initialization (this should cause an error).
+Finally, print the product name and price.
+
+Practical Task 5: Using super to Call Parent Methods
+Objective: Use the super keyword to call parent class methods.
+
+Instructions:
+Create a base class Animal with a method speak() that prints "Animal is making a sound".
+Create a subclass Dog that extends Animal and overrides the speak() method. In the overridden method, use the super.speak() to call the speak() method from the Animal class, and then print "Bark!".
+
+In the main function, create an instance of Dog and call the speak() method.
+
+Bonus Task: Combining All Concepts
+Objective: Combine inheritance, static variables, this, super, and final in a real-world scenario.
+
+Instructions:
+Create a class hierarchy with the following structure:
+
+Person class:
+
+final String name
+final int age
+Constructor to initialize name and age.
+Student class (inherits from Person):
+
+int grade
+Constructor to initialize name, age, and grade.
+A method printDetails() that prints the student’s name, age, and grade.
+Teacher class (inherits from Person):
+
+String subject
+Constructor to initialize name, age, and subject.
+A method printDetails() that prints the teacher’s name, age, and subject.
+School class:
+
+Static variable totalPeople to count the number of students and teachers.
+Static method addPerson() to increment the totalPeople count.
+Static method getTotalPeople() to return the total count of people.
+In the main function, create instances of Student and Teacher, call the printDetails() method for each, and use the School class to track the total number of people in the school.
