@@ -36,7 +36,7 @@ constructor: Method having a same as a classname
 
 1)default
 2)parameterized
-3)copy
+3)copy/named
 
 
 

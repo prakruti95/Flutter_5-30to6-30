@@ -1,0 +1,44 @@
+tops
+tops4
+--------------
+c
+
+do not use:
+functions
+loop
+conditional statement
+pointer
+variable declaration
+
+
+
+
+
+Overloading : two methods having a same name but number of parameters should be diffrent 
+
+Overriding : two or more methods having a same name and number of 
+parameters are also same
+
+
+a(int a,int b)
+{
+	return a+b;
+}
+a(float c,float d)
+{
+	
+	return c*d;
+}
+
+constructor:
+default
+parameterized
+named
+
+
+parameters:
+optional parameter
+named parameter
+default parameter
+
+
