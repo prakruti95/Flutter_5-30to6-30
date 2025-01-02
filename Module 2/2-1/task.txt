@@ -1,0 +1,5 @@
+task -1 text to speech
+task -2 switch music on/off
+task -3 display num between start and end in next screen
+
+
