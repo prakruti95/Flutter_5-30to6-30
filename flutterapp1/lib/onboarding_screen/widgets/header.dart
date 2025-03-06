@@ -14,7 +14,7 @@ class Header extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Ink.image(
-          image: AssetImage('images/logo.png'),
+          image: AssetImage('assets/logo.png'),
           height: 50,
           width: 50,
         ),
