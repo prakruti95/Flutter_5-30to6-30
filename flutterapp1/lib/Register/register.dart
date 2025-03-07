@@ -186,10 +186,15 @@ class _RegisterState extends State<Register>
                                 borderRadius: BorderRadius.circular(4.0),
                               ),
                             ),
-                            onPressed: () {
-                              if (password.text.toString() == confirmpassword.text.toString()) {
+                            onPressed: ()
+                            {
+                              if (password.text.toString() == confirmpassword.text.toString())
+                              {
                                 registeruser();
-                              } else {
+                                Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => Login()));
+                              }
+                              else
+                              {
                                 // Show SnackBar with message
                                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Password and confirm password must be same")));
                               }

@@ -4,10 +4,12 @@ import 'package:flutterapp1/login/widgets/custom_clippers/brown_top_clipper.dart
 import 'package:flutterapp1/login/widgets/custom_clippers/gold_top_clipper.dart';
 import 'package:flutterapp1/login/widgets/custom_clippers/lightgold_top_clipper.dart';
 import 'package:flutterapp1/login/widgets/header.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants.dart';
 import '../Register/register.dart';
+import 'package:http/http.dart' as http;
 
-
+import '../dashboard/dashboard_screen.dart';
 class Login extends StatefulWidget
 {
   const Login({super.key});
@@ -23,14 +25,19 @@ class _LoginState extends State<Login>
 
 
   final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  late SharedPreferences sharedPreferences;
   var username = TextEditingController();
   var password = TextEditingController();
   var mobileno = TextEditingController();
-
+  late bool newuser,newuser2;
   bool _isObscurePassword = true;
 
-
+@override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    checkValue();
+  }
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
@@ -172,7 +179,16 @@ class _LoginState extends State<Login>
                             ),
                             onPressed: ()
                             {
-
+                              /*if(mobileno.text.toString()=="1234567890" && password.text.toString()=="1")
+                              {
+                                sharedPreferences.setBool('admin', false);
+                                sharedPreferences.setString('mymob', mobileno.text.toString());
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => AdminDasboardScreen()));
+                              }*/
+                              //else
+                            //  {
+                                checklogin();
+                             // }
                             },
                             child: Text("Login to continue",
                               style: Theme.of(context).textTheme.subtitle1!.copyWith(color: kGold, fontWeight: FontWeight.bold),
@@ -237,5 +253,38 @@ class _LoginState extends State<Login>
       ),
     );
 
+  }
+
+  void checklogin() async
+  {
+    var url = Uri.parse("https://prakrutitech.buzz/Project_API/login.php");
+    var response = await http.post(url, body: {
+      "mobileno": mobileno.text.toString(),
+      "password": password.text.toString()
+    });
+    var data = json.decode(response.body);
+
+    if (data == 0)
+    {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Fail")));
+    }
+    else
+    {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Success")));
+
+      sharedPreferences.setBool('tops', false);
+      sharedPreferences.setString('mymob', mobileno.text.toString());
+      Navigator.push(context, MaterialPageRoute(builder: (context) => DasboardScreen()));
+    }
+  }
+
+  checkValue() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    newuser = sharedPreferences.getBool('tops') ?? true;
+
+    if (newuser == false)
+    {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DasboardScreen()));
+    }
   }
 }
