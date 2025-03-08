@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp1/login/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
+import '../category/home/home.dart';
 import '../constants.dart';
-
 
 class DasboardScreen extends StatefulWidget
 {
@@ -20,7 +19,7 @@ class _DasboardScreenState extends State<DasboardScreen>
 
   static List<Widget> _widgetOptions = <Widget>
   [
-   // Home(),
+    Home(),
    // DownloadScreen(),
   ];
 
@@ -59,7 +58,7 @@ class _DasboardScreenState extends State<DasboardScreen>
       ),
       body: Center
         (
-        //child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       backgroundColor: kLightGold,
       bottomNavigationBar: BottomNavigationBar(
