@@ -4,6 +4,8 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
+import 'package:share/share.dart';
 
 import '../constants.dart';
 
@@ -95,16 +97,17 @@ class ItemsState extends State<Items> {
 
   ItemsState({required this.list, this.size});
 
-  // Future<void> _share(var url) async {
-  //   String fileName = url.substring(url.lastIndexOf("/") + 1);
-  //   final uri = Uri.parse(url);
-  //   final res = await http.get(uri);
-  //   final bytes = res.bodyBytes;
-  //   final temp = await getTemporaryDirectory();
-  //   final path = '${temp.path}/$fileName';
-  //   File(path).writeAsBytesSync(bytes);
-  //   await Share.shareFiles([path]);
-  // }
+  Future<void> _share(var url) async
+  {
+    String fileName = url.substring(url.lastIndexOf("/") + 1);
+    final uri = Uri.parse(url);
+    final res = await http.get(uri);
+    final bytes = res.bodyBytes;
+    final temp = await getTemporaryDirectory();
+    final path = '${temp.path}/$fileName';
+    File(path).writeAsBytesSync(bytes);
+    await Share.shareFiles([path]);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -167,7 +170,7 @@ class ItemsState extends State<Items> {
                         SizedBox(width: size.width * 10 / 100),
                         InkWell(
                           onTap: () {
-                          //  _share(list[index]['c_images']);
+                            _share(list[index]['c_images']);
                           },
                           child: Icon(Icons.share, color: Colors.white),
                         ),
