@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp1/login/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../category/download/download.dart';
 import '../category/home/home.dart';
 import '../constants.dart';
 
@@ -20,7 +21,7 @@ class _DasboardScreenState extends State<DasboardScreen>
   static List<Widget> _widgetOptions = <Widget>
   [
     Home(),
-   // DownloadScreen(),
+    Download(),
   ];
 
   void _onItemTapped(int index) {

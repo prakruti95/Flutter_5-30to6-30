@@ -38,7 +38,16 @@ dependencies:
   lottie: ^3.1.2
   connectivity: ^3.0.6
   shared_preferences: ^2.2.3
-
+  share: ^2.0.4
+  path: any
+  path_provider: ^2.1.4
+  permission_handler: any
+  get: ^4.6.6
+  get_storage: ^2.1.1
+  sqflite: any
+  image_gallery_saver: any
+  dio: ^5.7.0
+  fluttertoast: ^8.2.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

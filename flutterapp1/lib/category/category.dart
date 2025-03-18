@@ -2,12 +2,18 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:share/share.dart';
 
 import '../constants.dart';
+import 'categoryDB.dart';
+import 'categoryDBModel.dart';
 
 
 class Category extends StatefulWidget
@@ -87,13 +93,13 @@ class ItemsState extends State<Items> {
   List list;
   var size;
 
-  // DB db = DB();
-  // String savePath = "";
+    DB db = DB();
+   String savePath = "";
 
-  // @override
-  // void initstate() {
-  //   db = DB();
-  // }
+  @override
+  void initstate() {
+    db = DB();
+  }
 
   ItemsState({required this.list, this.size});
 
@@ -177,7 +183,7 @@ class ItemsState extends State<Items> {
                         SizedBox(width: size.width * 17 / 95),
                         InkWell(
                           onTap: () {
-                           // _save(list[index]['c_images']);
+                            _save(list[index]['c_images']);
                           },
                           child: Icon(Icons.download, color: Colors.white),
                         ),
@@ -191,48 +197,55 @@ class ItemsState extends State<Items> {
     );
   }
 
-  // void _save(var url) async {
-  //   var status = await Permission.manageExternalStorage.request();
-  //   _onLoad(true);
-  //   if (status.isGranted) {
-  //     Future<String> createFolderInAppDocDir(String folderName) async {
-  //       final Directory _appDocDir = await getApplicationDocumentsDirectory();
-  //
-  //       final Directory _appDocDirFolder =
-  //       Directory('${_appDocDir.path}/$folderName/');
-  //
-  //       if (await _appDocDirFolder.exists()) {
-  //         //if folder already exists return path
-  //         return _appDocDirFolder.path;
-  //       } else {
-  //         //if folder not exists create folder and then return its path
-  //         final Directory _appDocDirNewFolder =
-  //         await _appDocDirFolder.create(recursive: true);
-  //         return _appDocDirNewFolder.path;
-  //       }
-  //     }
-  //
-  //     String fileName = url.substring(url.lastIndexOf("/") + 1);
-  //     savePath = 'storage/emulated/0/Pictures/$fileName';
-  //     db.insertData(CategoryModel(url: savePath));
-  //
-  //     var response = await Dio()
-  //         .get(url, options: Options(responseType: ResponseType.bytes));
-  //     ImageGallerySaver.saveImage(Uint8List.fromList(response.data),
-  //         name: fileName);
-  //
-  //     Fluttertoast.showToast(
-  //         msg: "Image Downloaded Successfully",
-  //         toastLength: Toast.LENGTH_LONG,
-  //         timeInSecForIosWeb: 1);
-  //
-  //     _onLoadExit(true);
-  //
-  //     print("Image Downloaded");
-  //   } else {
-  //     print("permission not granted");
-  //   }
-  // }
+  void _save(var url) async
+  {
+    var status = await Permission.manageExternalStorage.request();
+    _onLoad(true);
+    if (status.isGranted)
+    {
+      Future<String> createFolderInAppDocDir(String folderName) async
+      {
+        final Directory _appDocDir = await getApplicationDocumentsDirectory();
+
+        final Directory _appDocDirFolder =
+        Directory('${_appDocDir.path}/$folderName/');
+
+        if (await _appDocDirFolder.exists())
+        {
+          //if folder already exists return path
+          return _appDocDirFolder.path;
+        }
+        else
+        {
+          //if folder not exists create folder and then return its path
+          final Directory _appDocDirNewFolder =
+          await _appDocDirFolder.create(recursive: true);
+          return _appDocDirNewFolder.path;
+        }
+      }
+
+      String fileName = url.substring(url.lastIndexOf("/") + 1);
+      savePath = 'storage/emulated/0/Pictures/$fileName';
+      db.insertData(CategoryModel(url: savePath));
+
+      var response = await Dio()
+          .get(url, options: Options(responseType: ResponseType.bytes));
+      ImageGallerySaver.saveImage(Uint8List.fromList(response.data), name: fileName);
+
+      Fluttertoast.showToast(
+          msg: "Image Downloaded Successfully",
+          toastLength: Toast.LENGTH_LONG,
+          timeInSecForIosWeb: 1);
+
+      _onLoadExit(true);
+
+      print("Image Downloaded");
+    }
+    else
+    {
+      print("permission not granted");
+    }
+  }
 
   void _onLoad(bool showBox) {
     showDialog(
