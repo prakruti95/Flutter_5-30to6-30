@@ -3,10 +3,10 @@ import 'dart:io';
 
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp1/onboarding_screen/onboardingscreen.dart';
+import 'package:flutterapp1/user/onboarding_screen/onboardingscreen.dart';
 import 'package:lottie/lottie.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
 
 
 class SplashScreen extends StatefulWidget

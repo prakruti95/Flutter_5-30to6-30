@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp1/splashscreen/SplashScreen.dart';
+import 'package:flutterapp1/user/splashscreen/SplashScreen.dart';
+
+import 'admin/adminlogin.dart';
 
 void main()
 {
@@ -7,7 +9,7 @@ void main()
     (
       MaterialApp
       (
-          home:SplashScreen()
+          home:AdminLoginApp()
       )
     );
 }

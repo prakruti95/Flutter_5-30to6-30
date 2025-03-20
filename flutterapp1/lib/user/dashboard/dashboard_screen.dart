@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp1/login/login.dart';
+import 'package:flutterapp1/user/login/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../category/download/download.dart';
 import '../category/home/home.dart';
-import '../constants.dart';
+import '../../constants.dart';
 
 class DasboardScreen extends StatefulWidget
 {

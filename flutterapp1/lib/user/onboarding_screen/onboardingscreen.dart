@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp1/login/login.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/header.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/next_page_button.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/onboarding_page_indicator.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/community/community_dark_card_content.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/community/community_light_card_content.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/community/community_text_column.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/onboarding_page.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/relationships/relationships_dark_card_content.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/relationships/relationships_light_card_content.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/relationships/relationships_text_column.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/work/work_dark_card_content.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/work/work_light_card_content.dart';
-import 'package:flutterapp1/onboarding_screen/widgets/pages/work/work_text_column.dart';
-import '../constants.dart';
+import 'package:flutterapp1/user/login/login.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/header.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/next_page_button.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/onboarding_page_indicator.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/community/community_dark_card_content.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/community/community_light_card_content.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/community/community_text_column.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/onboarding_page.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/relationships/relationships_dark_card_content.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/relationships/relationships_light_card_content.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/relationships/relationships_text_column.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/work/work_dark_card_content.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/work/work_light_card_content.dart';
+import 'package:flutterapp1/user/onboarding_screen/widgets/pages/work/work_text_column.dart';
+import '../../constants.dart';
 
 
 class Onboarding  extends StatefulWidget
