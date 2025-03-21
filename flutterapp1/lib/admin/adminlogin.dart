@@ -55,7 +55,7 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
 
     if(newuser==false)
     {
-      //Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => AdminFront()));
+      Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => AdminFront()));
     }
 
   }

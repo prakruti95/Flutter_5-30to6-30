@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../constants.dart';
+import '../adminlogin.dart';
 import '../bottom_navigation/adminhome/adminhome.dart';
 import '../bottom_navigation/adminupload/adminupload.dart';
 
@@ -60,7 +61,7 @@ class FrontPage extends State<AdminFront>
             onPressed: () {
               logindata.setBool('ewishesadmin', true);
 
-              //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AdminLoginApp()));
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AdminLoginApp()));
             },
           ),
         ],
